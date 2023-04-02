@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
+    <link rel="stylesheet" href="styles.css" />
+    
+  </head>
+  <body>
+    <div id="big-container">
+      <div id="top-part">
+        <h1>KUBOT</h1>
+        <button id="connect" type="button">
+          <img src="Imgs/Bluetooth-icon.png" height="30em"></img>
+
+        </button>
+        <button id="disconnect" type="button">
+          <img src="Imgs/disconnected-icon-18-256.png" width="30em"></img>
+        </button>
+      </div>
+      <div id="middle-part">
+        <div id="terminal">
+          <div class="def-txt">Device connection...</div>
+          <div class="out def-txt">Outcoming message</div>
+          <div class="in def-txt">Incoming message</div>
+        </div>
+        <div id="ultrasonicAd"><h2> Ultrasonic following activated </h2> <p></p> <button onclick="toggleSelectorVis(event,'inline','none',true)" id="stopUltrasonic"> STOP </button></div>
+        <div id="led-buttons">
+          <button onclick="turn_led('N')">ON</button>
+          <button onclick="turn_led('O')">OFF</button>
+          <button onclick="activateLed('inline','none')" id="backLed">
+            <img src='Imgs/homeIcon.png' width="10%"></img>
+          </button>
+      </div>
+      </div>
+      <div id="bottom-part">
+        <button class="selectors" id="follow" onclick="activateFollow()">Following</button>
+        <button class="selectors" id="control" onclick="activateControl()">Controller</button>
+        <button class="selectors" id="led" onclick="activateLed('none','grid')">Led TEST</button>
+        
+        <form id="send-form">
+          <input id="input" type="text" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+    <div id="controller-page">
+      <div id="controller">
+        <table>
+          <tr>
+            <td></td>
+            <td>
+              <button
+                onmousedown="move('F')"
+                ontouchstart="move('F')"
+                onmouseup="move('T')"
+                ontouchend="move('T')"
+              >
+              ▲
+              </button>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>
+              <button
+                onmousedown="move('L')"
+                ontouchstart="move('L')"
+                onmouseup="move('T')"
+                ontouchend="move('T')"
+              >
+              ◄
+              </button>
+            </td>
+            <td><div id="middle-space"></div></td>
+            <td>
+              <button
+                onmousedown="move('R')"
+                ontouchstart="move('R')"
+                onmouseup="move('T')"
+                ontouchend="move('T')"
+              >
+              ►
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button
+                onmousedown="move('B')"
+                ontouchstart="move('B')"
+                onmouseup="move('T')"
+                ontouchend="move('T')"
+              >
+              ▼
+              </button>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+        <button id="controlBack" onclick="controllerBack(event)">
+          <img src='Imgs/homeIcon.png' width="90%"></img>
+        </button>
+      </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script src="companion.js" data-service-worker="sw.js"></script>
+  </body>
+</html>
